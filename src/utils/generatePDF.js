@@ -117,7 +117,6 @@ const generatePDF = (
   daysInMonth,
   perDayCost,
   people,
-  message,
   buildingName,
   paidBalance
 ) => {
@@ -236,8 +235,7 @@ const generatePDF = (
     tableLineWidth: 0.2,
   });
   y = doc.autoTable.previous.finalY + 10;
-  doc.setFontSize(20);
-  doc.text(message, pageWidth / 2, y + 10, { align: "center" });
+
   doc.addPage();
   y = 10;
   doc.setFontSize(14);
