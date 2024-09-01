@@ -176,15 +176,15 @@ function App() {
             placeholder="Enter Building Name"
           />
         </div>
-        <div>
-          <label>Enter the message:</label>
-          <input
-            type="text"
-            value={message}
-            onChange={handleMessageChange}
-            placeholder="Enter the message"
-          />
-        </div>
+        // <div>
+        //   <label>Enter the message:</label>
+        //   <input
+        //     type="text"
+        //     value={message}
+        //     onChange={handleMessageChange}
+        //     placeholder="Enter the message"
+        //   />
+        // </div>
         <ExpensesForm
           expenses={expenses}
           onExpenseChange={handleExpenseChange}
