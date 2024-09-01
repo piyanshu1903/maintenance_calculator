@@ -137,7 +137,7 @@ const generatePDF = (
   //   fontFamily: "helvetica",
   // };
 
-  const heading = `${buildingName} Complex Maintenance ${data.selectedDate.toLocaleString(
+  const heading = `${buildingName} Maintenance ${data.selectedDate.toLocaleString(
     "default",
     { month: "long" }
   )} ${data.selectedDate.getFullYear()}`;
