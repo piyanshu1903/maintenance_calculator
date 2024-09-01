@@ -26,15 +26,10 @@ const people = [
 ];
 
 function App() {
-  const [message, setMessage] = useState("");
   const [buildingName, setBuildingName] = useState("");
 
   const handleBuildingNameChange = (event) => {
     setBuildingName(event.target.value);
-  };
-
-  const handleMessageChange = (event) => {
-    setMessage(event.target.value);
   };
 
   const [expenses, setExpenses] = useState([
@@ -140,7 +135,6 @@ function App() {
       daysInMonth,
       perDayCost,
       people,
-      message,
       buildingName,
       paidBalance
     );
@@ -176,15 +170,6 @@ function App() {
             placeholder="Enter Building Name"
           />
         </div>
-        {/* <div>
-          <label>Enter the message:</label>
-          <input
-            type="text"
-            value={message}
-            onChange={handleMessageChange}
-            placeholder="Enter the message"
-          />
-        </div> */}
         <ExpensesForm
           expenses={expenses}
           onExpenseChange={handleExpenseChange}
