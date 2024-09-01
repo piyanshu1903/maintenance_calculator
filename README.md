@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# 🏠 Maintenance Calculation App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Maintenance Calculation App**! This React-based application allows users to input expenses and descriptions to calculate the maintenance cost per head. While currently a personal project, this app serves as a practical tool for learning and applying React concepts to solve everyday issues.
 
-## Available Scripts
+## 🚀 Project Overview
 
-In the project directory, you can run:
+This application was developed as part of a personal journey to learn and explore the React ecosystem. The primary goal was to create a solution that could help manage maintenance expenses effectively while honing my skills in React.
 
-### `npm start`
+### Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Expense Input**: Users can enter various expenses along with descriptions.
+- **Maintenance Calculation**: Automatically calculates the maintenance cost per head based on the input data.
+- **Static Data**: Flat number and owner names are currently static, as this is a personal project.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **React**: Frontend library for building user interfaces.
+- **JavaScript**: Programming language used to implement logic.
+- **CSS**: For styling the application.
+- **HTML**: To structure the app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📝 How It Works
 
-### `npm run build`
+1. **Input Expenses**: Fill out the expense amounts and descriptions.
+2. **View Maintenance Cost**: The app calculates and displays the maintenance per head.
+3. **Provide a PDF**: The app provides an detailed pdf regarding Maintenance which user can share.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> **Note**: Flat number and owner name fields are static for now.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎯 Project Goals
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Learn React**: This project was primarily a learning exercise in React.
+- **Solve a Personal Problem**: Address a personal need to manage maintenance expenses.
+- **Practice Coding**: Enhance coding skills through practical application.
