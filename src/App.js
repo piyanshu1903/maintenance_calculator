@@ -8,21 +8,21 @@ import generatePDF from "./utils/generatePDF";
 import "./App.css";
 
 const people = [
-  { name: "John Doe", flatNumber: "101" },
-  { name: "Jane Smith", flatNumber: "102" },
-  { name: "Alice Johnson", flatNumber: "103" },
-  { name: "Bob Brown", flatNumber: "104" },
-  { name: "Charlie Davis", flatNumber: "105" },
-  { name: "Diana Evans", flatNumber: "106" },
-  { name: "Edward Foster", flatNumber: "107" },
-  { name: "Fiona Green", flatNumber: "108" },
-  { name: "George Harris", flatNumber: "109" },
-  { name: "Hannah Ivers", flatNumber: "110" },
-  { name: "Ian Jackson", flatNumber: "111" },
-  { name: "Jessica Kelly", flatNumber: "112" },
-  { name: "Kevin Lee", flatNumber: "113" },
-  { name: "Laura Miller", flatNumber: "114" },
-  { name: "Mike Nelson", flatNumber: "115" },
+  { name: "Mr Tejeet", flatNumber: "001" },
+  { name: "Mr Praveen", flatNumber: "101" },
+  { name: "Mrs Sushila Devi", flatNumber: "103" },
+  { name: "Mr Nilesh Chabuskar", flatNumber: "104" },
+  { name: "Mr Sabu TN", flatNumber: "201" },
+  { name: "Mr RP Pallai", flatNumber: "203" },
+  { name: "Mr Sailesh Deshmukh", flatNumber: "204" },
+  { name: "Mr Ashok Palakhe", flatNumber: "301" },
+  { name: "Mr Kishore Adapa", flatNumber: "302" },
+  { name: "Mrs Vani Adapa", flatNumber: "303" },
+  { name: "Mrs Nitatai D Mohite", flatNumber: "304" },
+  { name: "Mr Sunil Kumar", flatNumber: "401" },
+  { name: "Smt Anita D Dhiwar", flatNumber: "403" },
+  { name: "Mr Samadhan Gaikwad", flatNumber: "404" },
+  { name: "Mr Yashraj Gaikwad", flatNumber: "501" },
 ];
 
 function App() {
@@ -46,6 +46,9 @@ function App() {
   ]);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [remarks, setRemarks] = useState(Array(people.length).fill(""));
+  const [paidBalance, setPaidBalance] = useState(
+    Array(people.length).fill("2000")
+  );
 
   const getDaysInMonth = (date) =>
     new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -81,6 +84,18 @@ function App() {
     const newRemarks = [...remarks];
     newRemarks[index] = validValue;
     setRemarks(newRemarks);
+  };
+  const handlePaidBalanceChange = (index, value) => {
+    const validValue =
+      value === "" ||
+      (/^[0-9\b]+$/.test(value) &&
+        parseInt(value) >= 0 &&
+        parseInt(value) <= 5000)
+        ? value
+        : paidBalance[index];
+    const newBalance = [...paidBalance];
+    newBalance[index] = validValue;
+    setPaidBalance(newBalance);
   };
   const handleRemoveExpense = (index) => {
     const newExpenses = expenses.filter((_, i) => i !== index);
@@ -126,7 +141,8 @@ function App() {
       perDayCost,
       people,
       message,
-      buildingName
+      buildingName,
+      paidBalance
     );
   };
 
@@ -182,14 +198,18 @@ function App() {
           handleRemoveSpecialWork={handleRemoveSpecialWork}
         />
         <div style={{ textAlign: "left" }}>
-          <h4>Expenditure: ${calculateTotalAmount()} *Based on days stayed</h4>
-          <h4>Special Work: ${calculateSpecialWorkTotal()} *Equally shared</h4>
+          <h4>
+            Expenditure: Rs. {calculateTotalAmount()} *Based on days stayed
+          </h4>
+          <h4>
+            Special Work: Rs. {calculateSpecialWorkTotal()} *Equally shared
+          </h4>
         </div>
         <div>
           <h2>
-            Total: ${calculateTotalAmount() + calculateSpecialWorkTotal()}
+            Total: Rs. {calculateTotalAmount() + calculateSpecialWorkTotal()}
           </h2>
-          <h2>Per Day: ${perDayCost.toFixed(2)}</h2>
+          <h2>Per Day: Rs. {perDayCost.toFixed(2)}</h2>
         </div>
         <MaintenanceTable
           people={people}
@@ -198,6 +218,8 @@ function App() {
           perDayCost={perDayCost}
           specialWorkPerPerson={specialWorkPerPerson}
           daysInMonth={daysInMonth}
+          paidBalance={paidBalance}
+          onPaidBalanceChange={handlePaidBalanceChange}
         />
         <button onClick={handleGeneratePDF} style={{ marginTop: "20px" }}>
           Print PDF

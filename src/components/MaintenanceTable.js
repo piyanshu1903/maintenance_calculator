@@ -7,6 +7,8 @@ function MaintenanceTable({
   perDayCost,
   specialWorkPerPerson,
   daysInMonth,
+  paidBalance,
+  onPaidBalanceChange,
 }) {
   return (
     <table className="maintenance-table">
@@ -30,7 +32,16 @@ function MaintenanceTable({
             <tr key={index}>
               <td>{person.flatNumber}</td>
               <td>{person.name}</td>
-              <td>Rs. 2000</td>
+              <td>
+                <input
+                  type="number"
+                  value={paidBalance[index]}
+                  onChange={(e) => onPaidBalanceChange(index, e.target.value)}
+                  min="0"
+                  max="5000"
+                  step="1"
+                />
+              </td>
               <td>Rs. {expenditure.toFixed(2)}</td>
               <td>Rs. {specialWorkPerPerson.toFixed(2)}</td>
               <td>Rs. {(expenditure + specialWorkPerPerson).toFixed(2)}</td>

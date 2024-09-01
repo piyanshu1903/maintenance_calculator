@@ -118,7 +118,8 @@ const generatePDF = (
   perDayCost,
   people,
   message,
-  buildingName
+  buildingName,
+  paidBalance
 ) => {
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.getWidth();
@@ -152,9 +153,9 @@ const generatePDF = (
     head: [["Expenditure", "Special Work", "Total"]],
     body: [
       [
-        `$${data.calculateTotalAmount()}`,
-        `$${data.calculateSpecialWorkTotal()}`,
-        `$${data.calculateTotalAmount() + data.calculateSpecialWorkTotal()}`,
+        `Rs. ${data.calculateTotalAmount()}`,
+        `Rs. ${data.calculateSpecialWorkTotal()}`,
+        `Rs. ${data.calculateTotalAmount() + data.calculateSpecialWorkTotal()}`,
       ],
     ],
     startY: 15,
@@ -184,8 +185,8 @@ const generatePDF = (
     head: [["Task Name", "Amount", "Description"]],
     body: data.expenses.map((expense) => [
       expense.taskName,
-      `$${expense.amount.toFixed(2)}`,
-      expense.description,
+      `Rs. ${expense.amount.toFixed(2)}`,
+      expense.description === "" ? "--" : expense.description,
     ]),
     startY: y,
     margin: { top: 10 },
@@ -214,8 +215,8 @@ const generatePDF = (
     head: [["Task Name", "Amount", "Description"]],
     body: data.specialWork.map((expense) => [
       expense.taskName,
-      `$${expense.amount.toFixed(2)}`,
-      expense.description,
+      `Rs. ${expense.amount.toFixed(2)}`,
+      expense.description === "" ? "--" : expense.description,
     ]),
     startY: y,
     margin: { top: 10 },
@@ -264,10 +265,11 @@ const generatePDF = (
       return [
         person.flatNumber,
         person.name,
-        "Rs. 2000",
-        `Rs. ${expenditure.toFixed(2)}`,
-        `Rs. ${specialWorkPerPerson.toFixed(2)}`,
-        `Rs. ${(expenditure + specialWorkPerPerson).toFixed(2)}`,
+        `Rs. ${paidBalance[index]}`,
+        `Rs. ${expenditure.toFixed(1)}`,
+        `Rs. ${specialWorkPerPerson.toFixed(1)}`,
+        // `Rs. ${(expenditure + specialWorkPerPerson).toFixed(2)}`,
+        `Rs. ${Math.round(expenditure + specialWorkPerPerson + 0.2)}`,
         remarks[index] || "--",
       ];
     }),
@@ -288,8 +290,12 @@ const generatePDF = (
     tableLineColor: [0, 0, 0],
     tableLineWidth: 0.2,
   });
-
-  doc.save("maintenance-calculation.pdf");
+  const monthShort = data.selectedDate.toLocaleString("default", {
+    month: "short",
+  });
+  const year = data.selectedDate.getFullYear();
+  const fileName = `${monthShort}-${year} Maintenance.pdf`;
+  doc.save(fileName);
 };
 
 export default generatePDF;
