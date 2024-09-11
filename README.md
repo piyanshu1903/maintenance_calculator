@@ -2,7 +2,7 @@
 
 Welcome to the **Maintenance Calculation App**! This React-based application allows users to input expenses and descriptions to calculate the maintenance cost per head. While currently a personal project, this app serves as a practical tool for learning and applying React concepts to solve everyday issues.
 
-Available at: https://online-maintenance-calculator.netlify.app
+Available at: [https://online-maintenance-calculator.netlify.app](https://online-maintenance-calculator.netlify.app target="_blank")
 
 ## 🚀 Project Overview
 
